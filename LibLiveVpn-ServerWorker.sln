@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{B2D1ED9F-FA8A-421F-8FEB-0A5F30B9398F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibLiveVpn-ServerWorker.Worker", "LibLiveVpn-ServerWorker.Worker\LibLiveVpn-ServerWorker.Worker.csproj", "{741613A0-B0C0-41F8-AE3B-96BBC32BF2C1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{9967812E-468E-4953-BA10-D95092B2BA8A}"
 EndProject
@@ -15,16 +13,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{F11655B5-6
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibLiveVpn-ServerWorker.Application", "LibLiveVpn-ServerWorker.Application\LibLiveVpn-ServerWorker.Application.csproj", "{DB73A208-7A57-4CAA-A8AE-9D7A1AE42D51}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibLiveVpn-ServerWorker.AppHost", "LibLiveVpn-ServerWorker.AppHost\LibLiveVpn-ServerWorker.AppHost.csproj", "{A861F816-14E7-4558-B768-63D2CE23CB60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibLiveVpn-ServerWorker.Infrastructure.Contracts", "LibLiveVpn-ServerWorker.Infrastructure.Contracts\LibLiveVpn-ServerWorker.Infrastructure.Contracts.csproj", "{07D3A7C2-6D90-429C-BD71-906CC4887760}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{741613A0-B0C0-41F8-AE3B-96BBC32BF2C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{741613A0-B0C0-41F8-AE3B-96BBC32BF2C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{741613A0-B0C0-41F8-AE3B-96BBC32BF2C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{741613A0-B0C0-41F8-AE3B-96BBC32BF2C1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4E7DEF2C-172F-4089-8144-F72F995BCA76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4E7DEF2C-172F-4089-8144-F72F995BCA76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E7DEF2C-172F-4089-8144-F72F995BCA76}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,13 +31,22 @@ Global
 		{DB73A208-7A57-4CAA-A8AE-9D7A1AE42D51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB73A208-7A57-4CAA-A8AE-9D7A1AE42D51}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB73A208-7A57-4CAA-A8AE-9D7A1AE42D51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A861F816-14E7-4558-B768-63D2CE23CB60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A861F816-14E7-4558-B768-63D2CE23CB60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A861F816-14E7-4558-B768-63D2CE23CB60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A861F816-14E7-4558-B768-63D2CE23CB60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07D3A7C2-6D90-429C-BD71-906CC4887760}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07D3A7C2-6D90-429C-BD71-906CC4887760}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07D3A7C2-6D90-429C-BD71-906CC4887760}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07D3A7C2-6D90-429C-BD71-906CC4887760}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{741613A0-B0C0-41F8-AE3B-96BBC32BF2C1} = {B2D1ED9F-FA8A-421F-8FEB-0A5F30B9398F}
 		{4E7DEF2C-172F-4089-8144-F72F995BCA76} = {9967812E-468E-4953-BA10-D95092B2BA8A}
 		{DB73A208-7A57-4CAA-A8AE-9D7A1AE42D51} = {F11655B5-6420-41A8-B061-424BBEE83409}
+		{A861F816-14E7-4558-B768-63D2CE23CB60} = {B2D1ED9F-FA8A-421F-8FEB-0A5F30B9398F}
+		{07D3A7C2-6D90-429C-BD71-906CC4887760} = {9967812E-468E-4953-BA10-D95092B2BA8A}
 	EndGlobalSection
 EndGlobal
