@@ -1,6 +1,7 @@
 ﻿using LibLiveVpn_ServerWorker.Infrastructure.Consumers;
 using LibLiveVpn_ServerWorker.Infrastructure.Contracts.Commands;
 using LibLiveVpn_ServerWorker.Infrastructure.Contracts.Events;
+using LibLiveVpn_ServerWorker.Infrastructure.Models;
 using MassTransit;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

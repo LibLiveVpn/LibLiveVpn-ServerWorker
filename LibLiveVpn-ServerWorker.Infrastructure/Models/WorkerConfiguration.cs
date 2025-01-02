@@ -1,4 +1,4 @@
-﻿namespace LibLiveVpn_ServerWorker.Infrastructure
+﻿namespace LibLiveVpn_ServerWorker.Infrastructure.Models
 {
     public class WorkerConfiguration
     {
