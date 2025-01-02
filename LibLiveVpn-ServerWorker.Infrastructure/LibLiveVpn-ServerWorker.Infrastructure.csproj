@@ -7,4 +7,17 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MassTransit" Version="8.3.4" />
+    <PackageReference Include="MassTransit.AspNetCore" Version="7.3.1" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="8.3.4" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LibLiveVpn-ServerWorker.Application\LibLiveVpn-ServerWorker.Application.csproj" />
+    <ProjectReference Include="..\LibLiveVpn-ServerWorker.Infrastructure.Contracts\LibLiveVpn-ServerWorker.Infrastructure.Contracts.csproj" />
+  </ItemGroup>
+
 </Project>
