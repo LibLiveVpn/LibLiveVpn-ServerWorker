@@ -24,6 +24,12 @@ namespace LibLiveVpn_ServerWorker.Infrastructure
             var workerConfiguration = new WorkerConfiguration();
             workerConfiguration.Id = workerConfigurationSection[nameof(WorkerConfiguration.Id)] ?? throw new ArgumentNullException($"Required field {nameof(WorkerConfiguration.Id)} not exists");
             workerConfiguration.BrokerHost = workerConfigurationSection[nameof(WorkerConfiguration.BrokerHost)] ?? throw new ArgumentNullException($"Required field {nameof(WorkerConfiguration.BrokerHost)} not exists");
+
+            if (ushort.TryParse(workerConfigurationSection[nameof(WorkerConfiguration.BrokerPort)], out ushort brokerPort))
+                workerConfiguration.BrokerPort = brokerPort;
+            else
+                workerConfiguration.BrokerPort = 5672;
+
             workerConfiguration.BrokerUsername = workerConfigurationSection[nameof(WorkerConfiguration.BrokerUsername)] ?? throw new ArgumentNullException($"Required field {nameof(WorkerConfiguration.BrokerUsername)} not exists");
             workerConfiguration.BrokerPassword = workerConfigurationSection[nameof(WorkerConfiguration.BrokerPassword)] ?? throw new ArgumentNullException($"Required field {nameof(WorkerConfiguration.BrokerPassword)} not exists");
 
@@ -37,8 +43,9 @@ namespace LibLiveVpn_ServerWorker.Infrastructure
 
                 c.UsingRabbitMq((context, settings) =>
                 {
-                    settings.Host(workerConfiguration.BrokerHost, s =>
+                    settings.Host(workerConfiguration.BrokerHost, workerConfiguration.BrokerPort, "/", s =>
                     {
+                        s.ConnectionName($"worker-node-{workerConfiguration.Id}-connection");
                         s.Username(workerConfiguration.BrokerUsername);
                         s.Password(workerConfiguration.BrokerPassword);
                     });
