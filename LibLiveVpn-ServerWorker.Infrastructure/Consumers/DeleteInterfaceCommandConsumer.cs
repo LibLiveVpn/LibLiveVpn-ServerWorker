@@ -1,6 +1,6 @@
-﻿using LibLiveVpn_ServerWorker.Application.Interfaces;
-using LibLiveVpn_ServerWorker.Infrastructure.Contracts.Commands;
-using LibLiveVpn_ServerWorker.Infrastructure.Contracts.Events;
+﻿using LibLiveVpn_Contracts.Commands;
+using LibLiveVpn_Contracts.Events;
+using LibLiveVpn_ServerWorker.Application.Interfaces;
 using LibLiveVpn_ServerWorker.Infrastructure.Models;
 using MassTransit;
 using Microsoft.Extensions.Logging;
