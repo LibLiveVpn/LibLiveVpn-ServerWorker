@@ -1,0 +1,3 @@
+[submodule "LibLiveVpn-Contracts"]
+	path = LibLiveVpn-Contracts
+	url = https://github.com/LibLiveVpn/LibLiveVpn-Contracts.git
