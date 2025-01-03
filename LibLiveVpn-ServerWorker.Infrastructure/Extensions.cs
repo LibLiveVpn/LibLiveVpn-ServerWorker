@@ -55,8 +55,7 @@ namespace LibLiveVpn_ServerWorker.Infrastructure
                     cfg.Message<UpdateInterfaceCommand>(x => x.SetEntityName(nameof(UpdateInterfaceCommand)));
                     cfg.Message<DeleteInterfaceCommand>(x => x.SetEntityName(nameof(DeleteInterfaceCommand)));
 
-                    cfg.Message<SuccessCommandExecudedEvent>(x => x.SetEntityName(nameof(SuccessCommandExecudedEvent)));
-                    cfg.Message<FailCommandExecudedEvent>(x => x.SetEntityName(nameof(FailCommandExecudedEvent)));
+                    cfg.Message<CommandExecudedEvent>(x => x.SetEntityName(nameof(CommandExecudedEvent)));
                     cfg.Message<WorkerStartedEvent>(x => x.SetEntityName(nameof(WorkerStartedEvent)));
 
                     cfg.ReceiveEndpoint($"worker-node-{workerConfiguration.Id}", endpoint =>
