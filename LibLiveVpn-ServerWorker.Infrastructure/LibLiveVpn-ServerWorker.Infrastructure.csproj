@@ -16,8 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\LibLiveVpn-Contracts\LibLiveVpn-Contracts.csproj" />
     <ProjectReference Include="..\LibLiveVpn-ServerWorker.Application\LibLiveVpn-ServerWorker.Application.csproj" />
-    <ProjectReference Include="..\LibLiveVpn-ServerWorker.Infrastructure.Contracts\LibLiveVpn-ServerWorker.Infrastructure.Contracts.csproj" />
   </ItemGroup>
 
 </Project>
