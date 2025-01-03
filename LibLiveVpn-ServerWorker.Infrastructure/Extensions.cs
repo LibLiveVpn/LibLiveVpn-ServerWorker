@@ -1,9 +1,9 @@
 ﻿using LibLiveVpn_Contracts.Commands;
 using LibLiveVpn_Contracts.Events;
-﻿using LibLiveVpn_ServerWorker.Infrastructure.Consumers;
+using LibLiveVpn_ServerWorker.Application.Interfaces;
 using LibLiveVpn_ServerWorker.Infrastructure.Consumers;
-using LibLiveVpn_ServerWorker.Infrastructure.Contracts.Events;
 using LibLiveVpn_ServerWorker.Infrastructure.Models;
+using LibLiveVpn_ServerWorker.Infrastructure.Services;
 using MassTransit;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,6 +15,9 @@ namespace LibLiveVpn_ServerWorker.Infrastructure
     {
         public static IServiceCollection AddInfrastructureDependencies(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddSingleton<FileAccessorService>();
+            services.AddSingleton<IVpnServerManager, WireguardServerManager>();
+
             services.AddMasstransitServices(configuration);
 
             return services;
