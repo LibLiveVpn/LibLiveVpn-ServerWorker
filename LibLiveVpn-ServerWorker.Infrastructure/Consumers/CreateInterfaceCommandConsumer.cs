@@ -24,6 +24,8 @@ namespace LibLiveVpn_ServerWorker.Infrastructure.Consumers
 
         public async Task Consume(ConsumeContext<CreateInterfaceCommand> context)
         {
+            _logger.LogInformation($"Consume {nameof(CreateInterfaceCommand)}");
+
             var result = await _vpnServerManager.CreateAreaAsync(context.Message.InterfaceName, context.Message.Configuration, context.CancellationToken);
             await _publishEndpoint.Publish(new CommandExecudedEvent
             {

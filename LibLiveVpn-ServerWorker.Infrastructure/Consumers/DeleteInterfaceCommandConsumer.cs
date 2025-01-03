@@ -24,6 +24,8 @@ namespace LibLiveVpn_ServerWorker.Infrastructure.Consumers
 
         public async Task Consume(ConsumeContext<DeleteInterfaceCommand> context)
         {
+            _logger.LogInformation($"Consume {nameof(DeleteInterfaceCommand)}");
+
             var result = await _vpnServerManager.DeleteAreaAsync(context.Message.InterfaceName, context.CancellationToken);
             await _publishEndpoint.Publish(new CommandExecudedEvent
             {
