@@ -36,27 +36,30 @@ namespace LibLiveVpn_ServerWorker.Infrastructure
 
             services.AddSingleton(workerConfiguration);
 
-            services.AddMassTransit(c =>
+            services.AddMassTransit(conf =>
             {
-                c.AddConsumer<CreateInterfaceCommandConsumer>();
-                c.AddConsumer<UpdateInterfaceCommandConsumer>();
-                c.AddConsumer<DeleteInterfaceCommandConsumer>();
+                conf.AddConsumer<CreateInterfaceCommandConsumer>();
+                conf.AddConsumer<UpdateInterfaceCommandConsumer>();
+                conf.AddConsumer<DeleteInterfaceCommandConsumer>();
 
-                c.UsingRabbitMq((context, settings) =>
+                conf.UsingRabbitMq((context, cfg) =>
                 {
-                    settings.Host(workerConfiguration.BrokerHost, workerConfiguration.BrokerPort, "/", s =>
+                    cfg.Host(workerConfiguration.BrokerHost, workerConfiguration.BrokerPort, "/", s =>
                     {
                         s.ConnectionName($"worker-node-{workerConfiguration.Id}-connection");
                         s.Username(workerConfiguration.BrokerUsername);
                         s.Password(workerConfiguration.BrokerPassword);
                     });
 
-                    settings.Message<CreateInterfaceCommand>(x => x.SetEntityName(nameof(CreateInterfaceCommand)));
-                    settings.Message<UpdateInterfaceCommand>(x => x.SetEntityName(nameof(UpdateInterfaceCommand)));
-                    settings.Message<DeleteInterfaceCommand>(x => x.SetEntityName(nameof(DeleteInterfaceCommand)));
-                    settings.Message<WorkerStartedEvent>(x => x.SetEntityName(nameof(WorkerStartedEvent)));
+                    cfg.Message<CreateInterfaceCommand>(x => x.SetEntityName(nameof(CreateInterfaceCommand)));
+                    cfg.Message<UpdateInterfaceCommand>(x => x.SetEntityName(nameof(UpdateInterfaceCommand)));
+                    cfg.Message<DeleteInterfaceCommand>(x => x.SetEntityName(nameof(DeleteInterfaceCommand)));
 
-                    settings.ReceiveEndpoint($"worker-node-{workerConfiguration.Id}", endpoint =>
+                    cfg.Message<SuccessCommandExecudedEvent>(x => x.SetEntityName(nameof(SuccessCommandExecudedEvent)));
+                    cfg.Message<FailCommandExecudedEvent>(x => x.SetEntityName(nameof(FailCommandExecudedEvent)));
+                    cfg.Message<WorkerStartedEvent>(x => x.SetEntityName(nameof(WorkerStartedEvent)));
+
+                    cfg.ReceiveEndpoint($"worker-node-{workerConfiguration.Id}", endpoint =>
                     {
                         endpoint.ConfigureConsumer<CreateInterfaceCommandConsumer>(context);
                         endpoint.ConfigureConsumer<UpdateInterfaceCommandConsumer>(context);
