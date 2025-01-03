@@ -6,6 +6,7 @@ USER root
 RUN apt update
 RUN apt install -y wireguard
 RUN apt install -y iptables
+RUN apt install -y iproute2
 WORKDIR /app
 
 
@@ -16,7 +17,7 @@ WORKDIR /src
 COPY ["LibLiveVpn-ServerWorker.AppHost/LibLiveVpn-ServerWorker.AppHost.csproj", "LibLiveVpn-ServerWorker.AppHost/"]
 COPY ["LibLiveVpn-ServerWorker.Application/LibLiveVpn-ServerWorker.Application.csproj", "LibLiveVpn-ServerWorker.Application/"]
 COPY ["LibLiveVpn-ServerWorker.Infrastructure/LibLiveVpn-ServerWorker.Infrastructure.csproj", "LibLiveVpn-ServerWorker.Infrastructure/"]
-COPY ["LibLiveVpn-ServerWorker.Infrastructure.Contracts/LibLiveVpn-ServerWorker.Infrastructure.Contracts.csproj", "LibLiveVpn-ServerWorker.Infrastructure.Contracts/"]
+COPY ["LibLiveVpn-Contracts/LibLiveVpn-Contracts.csproj", "LibLiveVpn-Contracts/"]
 RUN dotnet restore "./LibLiveVpn-ServerWorker.AppHost/LibLiveVpn-ServerWorker.AppHost.csproj"
 COPY . .
 WORKDIR "/src/LibLiveVpn-ServerWorker.AppHost"
